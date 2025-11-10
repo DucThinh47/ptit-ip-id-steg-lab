@@ -40,57 +40,57 @@ Trên máy `receiver`, thực hiện mở `Wireshark`:
 
     wireshark &
 
-![img](0)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image0.png?raw=true)
 
 Trên máy `sender`, thực thi file `send_normal.py` để thực hiện gửi gói tin:
 
     sudo python3 send_normal.py
 
-![img](1)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image1.png?raw=true)
 
 Sau khi gửi xong, bấm dừng bắt gói tin trên `Wireshark`. Quan sát, đánh giá giá trị của trường `Identification` trên `Wireshark`:
 
-![img](2)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image2.png?raw=true)
 
 (Có thể sử dụng bộ lọc `tcp && ip.src == 175.30.0.10` để quan sát dễ hơn) Tiếp theo, trên `Wireshark`, lưu thành file `normal_packets.pcap`:
 
-![img](3)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image3.png?raw=true)
 
 Trên máy `receiver`, thực thi file `detect_stego.py` để xác nhận file `normal_packets` không có các gói tin chứa thông điệp ẩn:
 
     sudo python3 detect_stego.py normal_packets.pcapng
 
-![img](4)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image4.png?raw=true)
 
 Thực hiện bắt gói tin mới trên `Wireshark`. Trên máy `sender`, thực thi file `send_stego.py` để gửi các gói chứa thông điệp ẩn:
 
     sudo python3 send_stego.py <ip_máy_receiver> <message>
 
-![img](5)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image5.png?raw=true)
 
 Quan sát trên `Wireshark`:
 
-![img](6)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image6.png?raw=true)
 
 Dừng bắt gói tin trên `Wireshark`, lưu file `stego_packets.pcap`:
 
-![img](7)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image7.png?raw=true)
 
 Trên máy `receiver`, thực thi file `detect_stego.py`, xác nhận file pcap có gói tin chứa thông điệp ẩn:
 
     sudo python3 detect_stego.py stego_packets.pcapng
 
-![img](8)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image8.png?raw=true)
 
 Thực hiện bắt lưu lượng mới trên `Wireshark`. Trên máy sender, thực thi file `send_hidden_mess.py`:
 
     sudo python3 send_hidden_mess.py <ip_máy_receiver>
 
-![img](9)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image9.png?raw=true)
 
 Sau khi gửi xong, dừng bắt gói tin trên `Wireshark`:
 
-![img](10)
+![img](https://github.com/DucThinh47/ptit-ip-id-steg-lab/blob/main/images/image10.png?raw=true)
 
 Thực hiện phân tích các gói tin, tìm ra giá trị bits của thông điệp ẩn. Sau khi có được giá trị bits của thông điệp ẩn, trên máy `receiver`, thực thi file `decode_bits.py` để tìm ra thông điệp:
 
